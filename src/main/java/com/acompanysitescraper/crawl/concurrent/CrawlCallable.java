@@ -1,8 +1,8 @@
-package com.cherryr.sitescraper.crawl.concurrent;
+package com.acompanysitescraper.crawl.concurrent;
 
-import com.cherryr.sitescraper.crawl.CrawlerEngine;
-import com.cherryr.sitescraper.crawl.Spider;
-import com.cherryr.sitescraper.crawl.UrlFetchWriter;
+import com.acompanysitescraper.crawl.CrawlerEngine;
+import com.acompanysitescraper.crawl.Spider;
+import com.acompanysitescraper.crawl.UrlFetchWriter;
 
 import java.util.concurrent.Callable;
 

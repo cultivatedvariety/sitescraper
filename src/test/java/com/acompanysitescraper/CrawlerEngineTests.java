@@ -1,20 +1,17 @@
-package com.cherryr.sitescraper;
+package com.acompanysitescraper;
 
-import com.cherryr.sitescraper.crawl.CrawlerEngine;
-import com.cherryr.sitescraper.crawl.Spider;
-import com.cherryr.sitescraper.crawl.Fetcher;
-import com.cherryr.sitescraper.crawl.concurrent.CrawlCallable;
-import com.cherryr.sitescraper.crawl.concurrent.Executor;
-import com.cherryr.sitescraper.crawl.concurrent.SpiderCrawlResult;
+import com.acompanysitescraper.crawl.CrawlerEngine;
+import com.acompanysitescraper.crawl.Spider;
+import com.acompanysitescraper.crawl.concurrent.CrawlCallable;
+import com.acompanysitescraper.crawl.concurrent.Executor;
+import com.acompanysitescraper.crawl.concurrent.SpiderCrawlResult;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
 import org.mockito.ArgumentCaptor;
 import org.mockito.Matchers;
 import org.mockito.Mockito;
-import org.mockito.verification.VerificationMode;
 
-import java.util.concurrent.Callable;
 import java.util.concurrent.Future;
 
 /**

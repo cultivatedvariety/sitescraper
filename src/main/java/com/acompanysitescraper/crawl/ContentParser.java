@@ -1,4 +1,4 @@
-package com.cherryr.sitescraper.crawl;
+package com.acompanysitescraper.crawl;
 
 import java.util.List;
 

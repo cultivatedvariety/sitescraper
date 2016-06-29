@@ -1,6 +1,6 @@
-package com.cherryr.sitescraper.crawl.concurrent;
+package com.acompanysitescraper.crawl.concurrent;
 
-import com.cherryr.sitescraper.crawl.ParsedContent;
+import com.acompanysitescraper.crawl.ParsedContent;
 
 import java.util.List;
 

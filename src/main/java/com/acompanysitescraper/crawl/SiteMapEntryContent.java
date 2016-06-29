@@ -1,4 +1,4 @@
-package com.cherryr.sitescraper.crawl;
+package com.acompanysitescraper.crawl;
 
 /**
  * Implementation of {@link ParsedContent} that represents a site map entry

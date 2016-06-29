@@ -1,4 +1,4 @@
-package com.cherryr.sitescraper.crawl;
+package com.acompanysitescraper.crawl;
 
 /**
  * Responsible for providing the {@link CrawlerEngine} with the urls to crawl and generating

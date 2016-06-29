@@ -1,4 +1,4 @@
-package com.cherryr.sitescraper;
+package com.acompanysitescraper;
 
 public class Main {
 

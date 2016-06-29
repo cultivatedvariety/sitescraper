@@ -1,4 +1,4 @@
-package com.cherryr.sitescraper.crawl.concurrent;
+package com.acompanysitescraper.crawl.concurrent;
 
 import java.util.concurrent.Callable;
 import java.util.concurrent.Future;

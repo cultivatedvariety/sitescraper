@@ -1,6 +1,4 @@
-package com.cherryr.sitescraper.crawl;
-
-import com.cherryr.sitescraper.crawl.Spider;
+package com.acompanysitescraper.crawl;
 
 /**
  * Represents a piece of parse parsed from a scraped page by a {@link Spider}. This is basically a marker

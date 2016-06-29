@@ -1,12 +1,12 @@
-package com.cherryr.sitescraper.crawl.concurrent;
+package com.acompanysitescraper.crawl.concurrent;
 
 import java.util.concurrent.*;
 
 /**
- * Implementation of {@link com.cherryr.sitescraper.crawl.concurrent.Executor} that uses a fixed thread {@link ExecutorService} to
+ * Implementation of {@link Executor} that uses a fixed thread {@link ExecutorService} to
  * execute {@link Callable}s
  */
-public class FixedThreadExecutor<R> implements com.cherryr.sitescraper.crawl.concurrent.Executor<R> {
+public class FixedThreadExecutor<R> implements Executor<R> {
 
     private final ExecutorService executorService;
     private final CompletionService<R> completionService;

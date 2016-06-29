@@ -1,8 +1,8 @@
-package com.cherryr.sitescraper.crawl;
+package com.acompanysitescraper.crawl;
 
-import com.cherryr.sitescraper.crawl.concurrent.CrawlCallable;
-import com.cherryr.sitescraper.crawl.concurrent.SpiderCrawlResult;
-import com.cherryr.sitescraper.crawl.concurrent.Executor;
+import com.acompanysitescraper.crawl.concurrent.CrawlCallable;
+import com.acompanysitescraper.crawl.concurrent.SpiderCrawlResult;
+import com.acompanysitescraper.crawl.concurrent.Executor;
 
 import java.net.URI;
 import java.net.URISyntaxException;

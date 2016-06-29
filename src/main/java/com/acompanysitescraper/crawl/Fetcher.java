@@ -1,4 +1,4 @@
-package com.cherryr.sitescraper.crawl;
+package com.acompanysitescraper.crawl;
 
 /**
  * Responsible for fetching the parse associated with a url
