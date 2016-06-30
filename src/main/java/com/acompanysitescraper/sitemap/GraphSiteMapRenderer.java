@@ -13,15 +13,17 @@ import java.util.Map;
  */
 public class GraphSiteMapRenderer implements SiteMapRenderer {
 
+    private final String siteDomain;
     private final Logger logger;
 
-    public GraphSiteMapRenderer(Logger logger) {
+    public GraphSiteMapRenderer(String siteDomain, Logger logger) {
+        this.siteDomain = siteDomain;
         this.logger = logger;
     }
 
     @Override
     public void render(Map<String, UrlContents> urlContentsMap) {
-        urlContentsMap;
+        
 
     }
 
