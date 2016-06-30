@@ -15,6 +15,9 @@ It consists the following constructs:
 
 The project has one `Spider`, `WiproSpider` and  one `SitemapRenderer`, `DOTSiteMapRenderer`
 
+#Building
+A pom file is included for building and running the unit tests
+
 # Usage
 See `com.acompanysitescraper.Main` for example usage
 # Shortcommings
