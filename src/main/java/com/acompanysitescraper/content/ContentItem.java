@@ -9,5 +9,5 @@ import com.acompanysitescraper.crawl.Spider;
  * Implementors should return parsed parse by creating methods that start with getContent
  * and return a String e.g. getContentParentUrl returns the parent url etc.
  */
-public interface UrlContentItem {
+public interface ContentItem {
 }

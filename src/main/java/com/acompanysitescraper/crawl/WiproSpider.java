@@ -1,12 +1,15 @@
 package com.acompanysitescraper.crawl;
 
+import com.acompanysitescraper.content.SiteMapContentItem;
 import com.acompanysitescraper.content.SiteMapUrlContent;
-import com.acompanysitescraper.content.SiteMapUrlContentItem;
 import com.acompanysitescraper.content.UrlContents;
 import org.jsoup.Jsoup;
 import org.jsoup.nodes.Document;
 import org.jsoup.nodes.Element;
 import org.jsoup.select.Elements;
+
+import java.net.URI;
+import java.net.URISyntaxException;
 
 /**
  * Implementation of {@link Spider} that for wiprodigital.com. Uses Jsoup under the hood as parsing html using
@@ -51,15 +54,20 @@ public class WiproSpider implements Spider {
             if (parsedUrl == null){
                 continue;
             }
-            if (parsedUrl.contains("page_id=3402")){
-                int abc = 1;
-            }
             parsedUrl = parsedUrl.trim();
             if (parsedUrl == "" || parsedUrl.startsWith("#")){
                 continue;
             }
 
-            urlContent.addContentItem(new SiteMapUrlContentItem(url, parsedUrl));
+            if (parsedUrl.contains(" ")) {
+                parsedUrl = parsedUrl.replace(" ", "%20"); //make sure spaces are properly escaped
+            }
+
+            if (!isValidUrl(url)){
+                continue;
+            }
+
+            urlContent.addContentItem(new SiteMapContentItem(url, parsedUrl));
             // check if the url ends in an extension to ignore before parsing
             for (String extension : urlExtensionsToIgnore) {
                 if (parsedUrl.endsWith(extension)){
@@ -70,6 +78,15 @@ public class WiproSpider implements Spider {
                 continue;
             }
             urlFetchWriter.enqueue(parsedUrl);
+        }
+    }
+
+    private boolean isValidUrl(String url){
+        try {
+            new URI(url);
+            return true;
+        } catch (URISyntaxException e) {
+            return false;
         }
     }
 }

@@ -12,7 +12,7 @@ public class FixedThreadExecutor<R> implements Executor<R> {
     private final CompletionService<R> completionService;
 
     public FixedThreadExecutor() {
-        this.executorService = Executors.newFixedThreadPool(2);
+        this.executorService = Executors.newFixedThreadPool(4);
         this.completionService = new ExecutorCompletionService<R>(this.executorService);
     }
 

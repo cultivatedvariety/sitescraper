@@ -10,6 +10,7 @@ import java.net.URI;
 import java.net.URISyntaxException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Map;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Future;
 import java.util.concurrent.TimeUnit;
@@ -104,7 +105,6 @@ public class CrawlerEngine {
     }
 
     public void crawlUrl(String url){
-//        logger.logDebug("CrawlerEngine.crawlUrl: new URL received: " + url);
         if (!isAllowedDomain(url)){
             return;
         }
@@ -124,7 +124,7 @@ public class CrawlerEngine {
     }
 
 
-    public ConcurrentHashMap<String, UrlContents> getParsedContent() {
+    public Map<String, UrlContents> getParsedContents() {
         return parsedContent;
     }
 

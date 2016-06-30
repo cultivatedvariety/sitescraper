@@ -9,5 +9,5 @@ public interface UrlContents {
 
     String getUrl();
 
-    List<SiteMapUrlContentItem> getContents();
+    List<SiteMapContentItem> getContents();
 }

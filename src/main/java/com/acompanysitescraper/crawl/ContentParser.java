@@ -1,7 +1,7 @@
 package com.acompanysitescraper.crawl;
 
+import com.acompanysitescraper.content.ContentItem;
 import com.acompanysitescraper.content.UrlContents;
-import com.acompanysitescraper.content.UrlContentItem;
 
 /**
  * Responsible for parsing content and enqueuing any new urls for parsing
@@ -9,7 +9,7 @@ import com.acompanysitescraper.content.UrlContentItem;
 public interface ContentParser {
 
     /**
-     * Parses some scraped parse and generate a list of {@link UrlContentItem}
+     * Parses some scraped parse and generate a list of {@link ContentItem}
      *
      * @param url url that was scraped
      * @param content parse of the url

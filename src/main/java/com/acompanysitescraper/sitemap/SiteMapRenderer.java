@@ -10,5 +10,5 @@ import java.util.Map;
  */
 public interface SiteMapRenderer {
 
-    void render(Map<String, UrlContents> urlContentsMap);
+    void render(Map<String, UrlContents> urlContentsMap) throws Exception;
 }

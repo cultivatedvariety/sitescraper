@@ -9,14 +9,14 @@ import java.util.List;
 public class SiteMapUrlContent implements UrlContents {
 
     private final String url;
-    private final List<SiteMapUrlContentItem> contents;
+    private final List<SiteMapContentItem> contents;
 
     public SiteMapUrlContent(String url) {
         this.url = url;
-        contents = new ArrayList<SiteMapUrlContentItem>(500);
+        contents = new ArrayList<SiteMapContentItem>(500);
     }
 
-    public void addContentItem(SiteMapUrlContentItem contentItem){
+    public void addContentItem(SiteMapContentItem contentItem){
         contents.add(contentItem);
     }
 
@@ -26,7 +26,7 @@ public class SiteMapUrlContent implements UrlContents {
     }
 
     @Override
-    public List<SiteMapUrlContentItem> getContents() {
+    public List<SiteMapContentItem> getContents() {
         return contents;
     }
 }
