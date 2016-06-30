@@ -24,3 +24,5 @@ parsed infinitely. A potential fix is generating a hashcode of the page and not-
 
 # Improvements
 * `CrawlEngine` currently uses one `Executor` for both crawing and parsing. This could be split into two executors so that parsing and crawling are independent
+* Better error handling and feedback
+* Ability to cancel mid-crawl

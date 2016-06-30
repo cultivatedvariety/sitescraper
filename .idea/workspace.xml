@@ -2,36 +2,7 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="f841a739-cb5c-4305-96be-f48aa3bef871" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/acompanysitescraper/content/SiteMapContentItem.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/main/java/com/acompanysitescraper/sitemap/DOTSiteMapRenderer.java" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/acompanysitescraper/content/SiteMapUrlContentItem.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/src/main/java/com/acompanysitescraper/sitemap/GraphSiteMapRenderer.java" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/acompanysitescraper/crawl/content/SiteMapUrlContent.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/acompanysitescraper/crawl/content/SiteMapUrlContentItem.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/acompanysitescraper/crawl/content/UrlContentItem.class" afterPath="" />
-      <change type="DELETED" beforePath="$PROJECT_DIR$/target/classes/com/acompanysitescraper/crawl/content/UrlContents.class" afterPath="" />
-      <change type="MOVED" beforePath="$PROJECT_DIR$/src/main/java/com/acompanysitescraper/content/UrlContentItem.java" afterPath="$PROJECT_DIR$/src/main/java/com/acompanysitescraper/content/ContentItem.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/acompanysitescraper/Main.class" afterPath="$PROJECT_DIR$/target/classes/com/acompanysitescraper/Main.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/acompanysitescraper/crawl/ContentParser.class" afterPath="$PROJECT_DIR$/target/classes/com/acompanysitescraper/crawl/ContentParser.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/acompanysitescraper/crawl/CrawlerEngine.class" afterPath="$PROJECT_DIR$/target/classes/com/acompanysitescraper/crawl/CrawlerEngine.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/acompanysitescraper/crawl/WiproSpider.class" afterPath="$PROJECT_DIR$/target/classes/com/acompanysitescraper/crawl/WiproSpider.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/acompanysitescraper/crawl/concurrent/CrawlCallable.class" afterPath="$PROJECT_DIR$/target/classes/com/acompanysitescraper/crawl/concurrent/CrawlCallable.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/acompanysitescraper/crawl/concurrent/CrawlResult.class" afterPath="$PROJECT_DIR$/target/classes/com/acompanysitescraper/crawl/concurrent/CrawlResult.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/acompanysitescraper/crawl/concurrent/FixedThreadExecutor.class" afterPath="$PROJECT_DIR$/target/classes/com/acompanysitescraper/crawl/concurrent/FixedThreadExecutor.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/classes/com/acompanysitescraper/crawl/concurrent/SpiderCrawlResult.class" afterPath="$PROJECT_DIR$/target/classes/com/acompanysitescraper/crawl/concurrent/SpiderCrawlResult.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/target/test-classes/com/acompanysitescraper/CrawlerCallableTests.class" afterPath="$PROJECT_DIR$/target/test-classes/com/acompanysitescraper/CrawlerCallableTests.class" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/README.MD" afterPath="$PROJECT_DIR$/README.MD" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/pom.xml" afterPath="$PROJECT_DIR$/pom.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/sitescraper.iml" afterPath="$PROJECT_DIR$/sitescraper.iml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/acompanysitescraper/Main.java" afterPath="$PROJECT_DIR$/src/main/java/com/acompanysitescraper/Main.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/acompanysitescraper/content/SiteMapUrlContent.java" afterPath="$PROJECT_DIR$/src/main/java/com/acompanysitescraper/content/SiteMapUrlContent.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/acompanysitescraper/content/UrlContents.java" afterPath="$PROJECT_DIR$/src/main/java/com/acompanysitescraper/content/UrlContents.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/acompanysitescraper/crawl/ContentParser.java" afterPath="$PROJECT_DIR$/src/main/java/com/acompanysitescraper/crawl/ContentParser.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/acompanysitescraper/crawl/CrawlerEngine.java" afterPath="$PROJECT_DIR$/src/main/java/com/acompanysitescraper/crawl/CrawlerEngine.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/acompanysitescraper/crawl/WiproSpider.java" afterPath="$PROJECT_DIR$/src/main/java/com/acompanysitescraper/crawl/WiproSpider.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/acompanysitescraper/crawl/concurrent/FixedThreadExecutor.java" afterPath="$PROJECT_DIR$/src/main/java/com/acompanysitescraper/crawl/concurrent/FixedThreadExecutor.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/main/java/com/acompanysitescraper/sitemap/SiteMapRenderer.java" afterPath="$PROJECT_DIR$/src/main/java/com/acompanysitescraper/sitemap/SiteMapRenderer.java" />
     </list>
     <ignored path="sitescraper.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -149,8 +120,8 @@
       <file leaf-file-name="README.MD" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/README.MD">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="625">
-              <caret line="25" column="159" selection-start-line="25" selection-start-column="159" selection-end-line="25" selection-end-column="159" />
+            <state relative-caret-position="675">
+              <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
               <folding />
             </state>
           </provider>
@@ -951,7 +922,7 @@
       <option name="presentableId" value="Default" />
       <updated>1467175849085</updated>
       <workItem from="1467175850571" duration="6486000" />
-      <workItem from="1467201841786" duration="38845000" />
+      <workItem from="1467201841786" duration="39029000" />
     </task>
     <servers />
   </component>
@@ -988,7 +959,7 @@
     </history-entry>
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="45331000" />
+    <option name="totallyTimeSpent" value="45515000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="1" y="1" width="2158" height="1378" extended-state="6" />
@@ -1456,8 +1427,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/README.MD">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="625">
-          <caret line="25" column="159" selection-start-line="25" selection-start-column="159" selection-end-line="25" selection-end-column="159" />
+        <state relative-caret-position="675">
+          <caret line="27" column="29" selection-start-line="27" selection-start-column="29" selection-end-line="27" selection-end-column="29" />
           <folding />
         </state>
       </provider>
