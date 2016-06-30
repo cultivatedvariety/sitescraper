@@ -1,5 +1,5 @@
 # Overview
-*sitescraper* is a very basic site scraping engine.
+*sitescraper* is a very basic site scraping engine that renders a sitemap from a resulting scrape
 
 # Shortcommings
 * Randomly generated parameters on urls may result in infinite parsing e.g. if http://mydom.com/index.html?q=1

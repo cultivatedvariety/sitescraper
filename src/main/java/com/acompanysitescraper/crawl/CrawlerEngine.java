@@ -1,8 +1,10 @@
 package com.acompanysitescraper.crawl;
 
+import com.acompanysitescraper.Logger;
 import com.acompanysitescraper.crawl.concurrent.CrawlCallable;
 import com.acompanysitescraper.crawl.concurrent.SpiderCrawlResult;
 import com.acompanysitescraper.crawl.concurrent.Executor;
+import com.acompanysitescraper.content.UrlContents;
 
 import java.net.URI;
 import java.net.URISyntaxException;
@@ -10,6 +12,8 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.Future;
+import java.util.concurrent.TimeUnit;
+import java.util.concurrent.atomic.AtomicInteger;
 
 /**
  * Main engine for crawling a set of URLs. Makes use of a spider to produce items and urls
@@ -19,13 +23,16 @@ public class CrawlerEngine {
     private final Executor<SpiderCrawlResult> crawlExecutor;
     private final Spider spider;
     private final Object startStopLock;
+    private final Logger logger;
     private boolean run;
     private final List<String> crawledUrls;
     private final Object crawledUrlsLock;
-    private final ConcurrentHashMap<String, List<ParsedContent>> parsedContent;
+    private final ConcurrentHashMap<String, UrlContents> parsedContent;
     private Thread crawlResultsThread;
+    private final AtomicInteger totalCrawls;
+    private final AtomicInteger completedCrawls;
 
-    public CrawlerEngine(Spider spider, Executor<SpiderCrawlResult> crawlExecutor) {
+    public CrawlerEngine(Spider spider, Executor<SpiderCrawlResult> crawlExecutor, Logger logger) {
         if (spider == null){
             throw new IllegalArgumentException("spider cannot be null");
         }
@@ -34,12 +41,35 @@ public class CrawlerEngine {
             throw new IllegalArgumentException("crawlExecutor cannot be null");
         }
 
+        if (logger == null){
+            throw new IllegalArgumentException("logger cannot be null");
+        }
+
         this.spider = spider;
         this.crawlExecutor = crawlExecutor;
+        this.logger = logger;
         this.startStopLock = new Object();
         this.crawledUrls = new ArrayList<String>(10000);
         this.crawledUrlsLock = new Object();
-        this.parsedContent = new ConcurrentHashMap<String, List<ParsedContent>>();
+        this.parsedContent = new ConcurrentHashMap<String, UrlContents>();
+        this.totalCrawls = new AtomicInteger(0);
+        this.completedCrawls = new AtomicInteger(0);
+    }
+
+    public int getTotalCrawls(){
+        return this.totalCrawls.intValue();
+    }
+
+    public int getCompletedCrawls(){
+        return this.completedCrawls.intValue();
+    }
+
+    public int getInProgressCrawls(){
+        return this.totalCrawls.intValue() - this.completedCrawls.intValue();
+    }
+
+    public boolean isFinishedCrawling(){
+        return getInProgressCrawls() == 0;
     }
 
     public void start(){
@@ -59,6 +89,7 @@ public class CrawlerEngine {
         this.crawlResultsThread.start();
         //submit the seed url to get everything started
         crawlUrl(this.spider.getSeedUrl());
+        logger.logInfo("CrawlerEngine.start: started with seed url " + this.spider.getSeedUrl());
     }
 
     public void stop(){
@@ -73,6 +104,7 @@ public class CrawlerEngine {
     }
 
     public void crawlUrl(String url){
+//        logger.logDebug("CrawlerEngine.crawlUrl: new URL received: " + url);
         if (!isAllowedDomain(url)){
             return;
         }
@@ -86,29 +118,39 @@ public class CrawlerEngine {
                 this.crawledUrls.add(url);
             }
         }
+        this.totalCrawls.incrementAndGet();
         this.crawlExecutor.submit(new CrawlCallable(url, this.spider, (newUrl) -> crawlUrl(newUrl)));
+        logger.logDebug("CrawlerEngine.crawlUrl: url submitted for crawling: " + url);
     }
 
 
-    public ConcurrentHashMap<String, List<ParsedContent>> getParsedContent() {
+    public ConcurrentHashMap<String, UrlContents> getParsedContent() {
         return parsedContent;
     }
 
     private void processCrawlResults(){
         try {
-            while (!Thread.currentThread().interrupted()) {
-                Future<SpiderCrawlResult> future = this.crawlExecutor.take();
-                SpiderCrawlResult result = future.get();
-                if (!result.wasSuccessful()){
-                    //TODO: log
+            while (this.run && !Thread.currentThread().interrupted()) {
+                Future<SpiderCrawlResult> future = this.crawlExecutor.poll(5, TimeUnit.SECONDS);
+                if (future == null) {
                     continue;
                 }
-                this.parsedContent.putIfAbsent(result.getUrl(), result.getContents());
+
+                try {
+                    SpiderCrawlResult result = future.get();
+                    logger.logInfo("CrawlerEngine.processCrawlResults: Received result for " + result.getUrl() + ". wasSuccessful = " + result.wasSuccessful());
+                    if (result.wasSuccessful()) {
+                        this.parsedContent.putIfAbsent(result.getUrl(), result.getContents());
+                    }
+                } catch (Exception ex){
+                    logger.logError("An error occurred processing a crawl result", ex);
+                }
+                this.completedCrawls.incrementAndGet();
             }
         } catch (InterruptedException e){
             Thread.currentThread().interrupt();
         } catch (Exception ex){
-            //TODO: logging
+            logger.logError("An error occurred processing a crawl result. The result thread will terminate", ex);
         }
     }
 
@@ -123,7 +165,7 @@ public class CrawlerEngine {
                     return true;
             }
         } catch (URISyntaxException e) {
-            //TODO: logging
+            logger.logError("An error occurred checking if url " + url + " is an allowed domain", e);
         }
         return false;
     }

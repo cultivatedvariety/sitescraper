@@ -1,8 +1,6 @@
 package com.acompanysitescraper.crawl.concurrent;
 
-import com.acompanysitescraper.crawl.ParsedContent;
-
-import java.util.List;
+import com.acompanysitescraper.content.UrlContents;
 
 /**
  * Represents the result of a crawl
@@ -10,7 +8,7 @@ import java.util.List;
  */
 public interface CrawlResult {
 
-    List<ParsedContent> getContents();
+    UrlContents getContents();
 
     boolean wasSuccessful();
 

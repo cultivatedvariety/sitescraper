@@ -16,14 +16,23 @@ public class FixedThreadExecutor<R> implements Executor<R> {
         this.completionService = new ExecutorCompletionService<R>(this.executorService);
     }
 
+    @Override
     public Future<R> submit(Callable<R> callable) {
+
         return this.completionService.submit(callable);
     }
 
+    @Override
     public Future<R> take() throws InterruptedException {
         return this.completionService.take();
     }
 
+    @Override
+    public Future<R> poll(int timeout, TimeUnit timeUnit) throws InterruptedException {
+        return this.completionService.poll(timeout, timeUnit);
+    }
+
+    @Override
     public void shutdownNow() {
         this.executorService.shutdownNow();
     }

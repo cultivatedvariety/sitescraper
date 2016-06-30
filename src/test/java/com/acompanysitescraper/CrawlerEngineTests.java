@@ -22,23 +22,30 @@ public class CrawlerEngineTests {
     private Executor<SpiderCrawlResult> executor;
     private Future<SpiderCrawlResult> future;
     private CrawlerEngine crawlerEngine;
+    private Logger logger;
 
     @Before
     public void Before(){
         spider = Mockito.mock(Spider.class);
         executor = (Executor< SpiderCrawlResult>)Mockito.mock(Executor.class);
         future = (Future<SpiderCrawlResult>)Mockito.mock(Future.class);
-        crawlerEngine = new CrawlerEngine(spider, executor);
+        logger = Mockito.mock(Logger.class);
+        crawlerEngine = new CrawlerEngine(spider, executor, logger);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void When_SpiderIsNull_Then_ExceptionThrown(){
-        new CrawlerEngine(null, executor);
+        new CrawlerEngine(null, executor, logger);
     }
 
     @Test(expected = IllegalArgumentException.class)
     public void When_ExecutorIsNull_Then_ExceptionThrown(){
-        new CrawlerEngine(spider, null);
+        new CrawlerEngine(spider, null, logger);
+    }
+
+    @Test(expected = IllegalArgumentException.class)
+    public void When_LoggerIsNull_Then_ExceptionThrown(){
+        new CrawlerEngine(spider, executor, null);
     }
 
     @Test
@@ -97,7 +104,6 @@ public class CrawlerEngineTests {
         ArgumentCaptor<CrawlCallable> callableCaptor = ArgumentCaptor.forClass(CrawlCallable.class);
         Mockito.when(executor.submit(callableCaptor.capture())).thenReturn(future);
         Mockito.when(spider.getAllowedDomains()).thenReturn(allowedDomains);
-
 
         this.crawlerEngine.crawlUrl(url);
 

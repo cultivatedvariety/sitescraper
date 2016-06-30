@@ -1,4 +1,6 @@
-package com.acompanysitescraper.crawl;
+package com.acompanysitescraper.content;
+
+import com.acompanysitescraper.crawl.Spider;
 
 /**
  * Represents a piece of parse parsed from a scraped page by a {@link Spider}. This is basically a marker
@@ -7,5 +9,5 @@ package com.acompanysitescraper.crawl;
  * Implementors should return parsed parse by creating methods that start with getContent
  * and return a String e.g. getContentParentUrl returns the parent url etc.
  */
-public interface ParsedContent {
+public interface UrlContentItem {
 }
